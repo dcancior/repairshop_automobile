@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <!-- Definir el grupo para el modelo Car -->
+        <record id="group_car_user" model="res.groups">
+            <field name="name">Mechanical Workshop User</field>
+           
+        </record>
+
+</odoo>

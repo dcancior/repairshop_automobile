@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_car_kanban_mobile" model="ir.ui.view">
+        <field name="name">car.kanban.mobile</field>
+        <field name="model">car</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="nombre_auto"/>
+                <field name="marca_auto"/>
+                <field name="modelo_auto"/>
+                <field name="placas_auto"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="nombre_auto"/>
+                                </strong>
+                                <div class="o_kanban_record_subtitle">
+                                    <span><field name="marca_auto"/> - <field name="modelo_auto"/></span>
+                                </div>
+                                <div>
+                                    <span>Placas: <field name="placas_auto"/></span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

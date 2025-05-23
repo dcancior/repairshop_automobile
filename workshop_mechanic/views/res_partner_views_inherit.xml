@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit_add_vehicle_data" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.add.vehicle.data</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Añadir una nueva página antes de la página Contacts & Addresses -->
+                <xpath expr="//page[@name='contact_addresses']" position="before">
+                    <page name="autos" string="Vehicles">
+                        <field name="car_ids" groups="taller_mecanico.group_car_user">
+                            <tree string="Vehicles">
+                                <field name="nombre_auto" string="Vehicles"/>
+                                <field name="marca_auto" string="Vehicle Brand"/>
+                                <field name="modelo_auto" string="Vehicle model"/>
+                                <field name="color_auto" string="Color"/>
+                                <field name="placas_auto" string="Vehicle registration"/>   
+                                <field name="kilometraje_auto" string="Odometer"/>
+                                <field name="tanque_gasolina" string="Fuel tank"/>
+                            </tree>
+                            <form string="Vehicle">
+                                <group>
+                                    <field name="nombre_auto" string="Vehicles"/>
+                                    <field name="marca_auto" string="Vehicle Brand"/>
+                                    <field name="modelo_auto" string="Vehicle model"/>
+                                    <field name="color_auto" string="Color"/>
+                                    <field name="placas_auto" string="Vehicle registration"/>
+                                    <field name="kilometraje_auto" string="Odometer"/>
+                                    <field name="tanque_gasolina" string="Fuel tank"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+                   
