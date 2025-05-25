@@ -20,7 +20,7 @@
                 <xpath expr="//notebook" position="before">
                     <group string="Customer Vehicles" translate="1">
                         <group>
-                            <field name="selected_car_id" string="Selected Vehicle" widget="many2one" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id, 'form_view_ref': 'taller_mecanico.view_car_kanban_mobile'}" options="{'no_create_edit': false, 'no_quick_create': true, 'mobile_friendy': true, 'kanban_view_ref': 'taller_mecanico.view_car_kanban_mobile'}" translate="1"/>
+                            <field name="selected_car_id" string="Selected Vehicle" widget="many2one" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id, 'form_view_ref': 'workshop_mechanic.view_car_kanban_mobile'}" options="{'no_create_edit': false, 'no_quick_create': true, 'mobile_friendy': true, 'kanban_view_ref': 'workshop_mechanic.view_car_kanban_mobile'}" translate="1"/>
                             <field name="nombre_auto" string="Vehicle Name" translate="1"/>
                             <field name="marca_auto" string="Brand" translate="1"/>
                             <field name="modelo_auto" string="Model" translate="1"/>

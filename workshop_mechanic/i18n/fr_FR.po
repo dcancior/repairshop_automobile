@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* taller_mecanico
+# 	* workshop_mechanic
 #
 msgid ""
 msgstr ""
@@ -15,97 +15,97 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__1/4_de_tanque
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__1/4_de_tanque
 msgid "1/4 tank"
 msgstr "1/4 réservoir"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__3/4_de_tanque
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__3/4_de_tanque
 msgid "3/4 tank"
 msgstr "3/4 réservoir"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__marca_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__marca_auto
 msgid "Brand"
 msgstr "Marque"
 
-#. module: taller_mecanico
-#: model:ir.model,name:taller_mecanico.model_car
+#. module: workshop_mechanic
+#: model:ir.model,name:workshop_mechanic.model_car
 msgid "Car"
 msgstr "Voiture"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__nombre_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__nombre_auto
 msgid "Car Name"
 msgstr "Nom de la voiture"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__color_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__color_auto
 msgid "Color"
 msgstr "Couleur"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__create_uid
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__partner_id
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__partner_id
 msgid "Customer"
 msgstr "Client"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__tanque_gasolina
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__tanque_gasolina
 msgid "Fuel tank"
 msgstr "Réservoir de carburant"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__lleno
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__lleno
 msgid "Full"
 msgstr "Plein"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__medio_tanque
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__medio_tanque
 msgid "Half tank"
 msgstr "Demi réservoir"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_account_move__margin
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_account_move__margin
 msgid "Margin"
 msgstr "Marge"
 
-#. module: taller_mecanico
-#: model:res.groups,name:taller_mecanico.group_car_user
+#. module: workshop_mechanic
+#: model:res.groups,name:workshop_mechanic.group_car_user
 msgid "Mechanical Workshop User"
 msgstr "Utilisateur Atelier Mécanique"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__modelo_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__modelo_auto
 msgid "Model"
 msgstr "Modèle"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__kilometraje_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__kilometraje_auto
 msgid "Odometer"
 msgstr "Compteur kilométrique"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_sale_order__selected_car_id
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__selected_car_id
 msgid "Selected Vehicle"
 msgstr "Véhicule sélectionné"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__placas_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__placas_auto
 msgid "Vehicle registration"
 msgstr "Immatriculation"
 
-#. module: taller_mecanico
-#: model_terms:ir.ui.view,arch_db:taller_mecanico.view_partner_form_inherit_add_vehicle_data
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
 msgid "Vehicles"
 msgstr "Véhicules"
 
-#. module: taller_mecanico
-#: model_terms:ir.ui.view,arch_db:taller_mecanico.view_sale_order_form_inherit_add_vehicle_data
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
 msgid "Customer Vehicles"
 msgstr "Véhicules du client"

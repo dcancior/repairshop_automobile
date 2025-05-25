@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* taller_mecanico
+# 	* workshop_mechanic
 #
 msgid ""
 msgstr ""
@@ -15,107 +15,107 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__1/4_de_tanque
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__1/4_de_tanque
 msgid "1/4 tank"
 msgstr "四分之一箱"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__3/4_de_tanque
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__3/4_de_tanque
 msgid "3/4 tank"
 msgstr "四分之三箱"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__marca_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__marca_auto
 msgid "Brand"
 msgstr "品牌"
 
-#. module: taller_mecanico
-#: model:ir.model,name:taller_mecanico.model_car
+#. module: workshop_mechanic
+#: model:ir.model,name:workshop_mechanic.model_car
 msgid "Car"
 msgstr "汽车"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__nombre_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__nombre_auto
 msgid "Car Name"
 msgstr "车名"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__color_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__color_auto
 msgid "Color"
 msgstr "颜色"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__create_uid
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__create_uid
 msgid "Created by"
 msgstr "创建人"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__partner_id
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__partner_id
 msgid "Customer"
 msgstr "客户"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__tanque_gasolina
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__tanque_gasolina
 msgid "Fuel tank"
 msgstr "油箱"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__lleno
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__lleno
 msgid "Full"
 msgstr "满箱"
 
-#. module: taller_mecanico
-#: model:ir.model.fields.selection,name:taller_mecanico.selection__car__tanque_gasolina__medio_tanque
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__medio_tanque
 msgid "Half tank"
 msgstr "半箱"
 
-#. module: taller_mecanico
-#: model:ir.model,name:taller_mecanico.model_account_move
+#. module: workshop_mechanic
+#: model:ir.model,name:workshop_mechanic.model_account_move
 msgid "Journal Entry"
 msgstr "日记账分录"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_account_move__margin
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_account_move__margin
 msgid "Margin"
 msgstr "利润"
 
-#. module: taller_mecanico
-#: model:res.groups,name:taller_mecanico.group_car_user
+#. module: workshop_mechanic
+#: model:res.groups,name:workshop_mechanic.group_car_user
 msgid "Mechanical Workshop User"
 msgstr "机械车间用户"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_sale_order__partner_mobile
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__partner_mobile
 msgid "Mobile Phone"
 msgstr "手机"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__modelo_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__modelo_auto
 msgid "Model"
 msgstr "型号"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__kilometraje_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__kilometraje_auto
 msgid "Odometer"
 msgstr "里程表"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_sale_order__selected_car_id
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__selected_car_id
 msgid "Selected Vehicle"
 msgstr "选定车辆"
 
-#. module: taller_mecanico
-#: model:ir.model.fields,field_description:taller_mecanico.field_car__placas_auto
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__placas_auto
 msgid "Vehicle registration"
 msgstr "车辆登记"
 
-#. module: taller_mecanico
-#: model_terms:ir.ui.view,arch_db:taller_mecanico.view_partner_form_inherit_add_vehicle_data
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
 msgid "Vehicles"
 msgstr "车辆"
 
-#. module: taller_mecanico
-#: model_terms:ir.ui.view,arch_db:taller_mecanico.view_sale_order_form_inherit_add_vehicle_data
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
 msgid "Customer Vehicles"
 msgstr "客户车辆"
