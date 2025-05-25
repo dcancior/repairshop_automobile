@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 # DCR INFORMATIC SERVICES SAS DE CV
-# https://www.dcrsoluciones.comi
-# facebook.com/dcrinformaticservices
+# https://www.dcrsoluciones.com
 
 {
-    'name': "Automobile Auto Repair - ",  # Eliminado @ del nombre
+    'name': "Fix Manager MEX@ Auto Repair",  # Eliminado @ del nombre
     #modulo para rama 16
     'summary': """
         Module to efficiently manage your mechanical workshop.
@@ -61,6 +60,8 @@
         'views/sale_whatsapp.xml',
         'views/account_move_whatsapp_button.xml',
         'views/vistamobil.xml',
+        'views/anticipo.xml',
+        'views/change_name.xml'
     ],
 
     'assets': {},

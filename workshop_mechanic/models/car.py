@@ -10,7 +10,7 @@ class Car(models.Model):
 
     nombre_auto = fields.Char(string='Car Name', required=False)
     marca_auto = fields.Char(string='Brand')
-    modelo_auto = fields.Char(string='Model')
+    modelo_auto = fields.Integer(string='Model')
     color_auto = fields.Char(string='Color')
     kilometraje_auto = fields.Integer(string='Odometer')
     placas_auto = fields.Char(string='Vehicle registration')

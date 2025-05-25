@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista heredada para añadir campos de anticipo -->
+        <record id="view_sale_order_form_inherit_anticipos" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.anticipos</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="before">
+                    <group name="anticipos_info" string="Información de Anticipos">
+                        <field name="total_anticipos" widget="monetary"/>
+                        <field name="restante_orden" widget="monetary"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Vista heredada para lista de cotizaciones -->
+        <record id="view_quotation_tree_inherit_anticipos" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit.anticipos</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='amount_total']" position="after">
+                    <field name="total_anticipos" widget="monetary" sum="Total Anticipos"/>
+                    <field name="restante_orden" widget="monetary" sum="Total Restante" decoration-danger="restante_orden > amount_total * 0.3" placeholder="En rojo si el monto restante es >= que el 30%"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
