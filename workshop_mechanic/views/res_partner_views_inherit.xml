@@ -8,7 +8,7 @@
                 <!-- Añadir una nueva página antes de la página Contacts & Addresses -->
                 <xpath expr="//page[@name='contact_addresses']" position="before">
                     <page name="autos" string="Vehicles">
-                        <field name="car_ids" groups="taller_mecanico.group_car_user">
+                        <field name="car_ids" groups="workshop_mechanic.group_car_user">
                             <tree string="Vehicles">
                                 <field name="nombre_auto" string="Vehicles"/>
                                 <field name="marca_auto" string="Vehicle Brand"/>
