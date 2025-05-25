@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* workshop_mechanic
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20250311\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-24 19:01+0000\n"
+"PO-Revision-Date: 2025-03-24 19:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hi_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__1/4_de_tanque
+msgid "1/4 tank"
+msgstr "1/4 टैंक"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__3/4_de_tanque
+msgid "3/4 tank"
+msgstr "3/4 टैंक"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__marca_auto
+msgid "Brand"
+msgstr "ब्रांड"
+
+#. module: workshop_mechanic
+#: model:ir.model,name:workshop_mechanic.model_car
+msgid "Car"
+msgstr "कार"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__nombre_auto
+msgid "Car Name"
+msgstr "कार का नाम"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__color_auto
+msgid "Color"
+msgstr "रंग"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__create_uid
+msgid "Created by"
+msgstr "द्वारा निर्मित"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__partner_id
+msgid "Customer"
+msgstr "ग्राहक"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__tanque_gasolina
+msgid "Fuel tank"
+msgstr "ईंधन टैंक"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__lleno
+msgid "Full"
+msgstr "पूरा"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__medio_tanque
+msgid "Half tank"
+msgstr "आधा टैंक"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_account_move__margin
+msgid "Margin"
+msgstr "मार्जिन"
+
+#. module: workshop_mechanic
+#: model:res.groups,name:workshop_mechanic.group_car_user
+msgid "Mechanical Workshop User"
+msgstr "मैकेनिकल कार्यशाला उपयोगकर्ता"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__modelo_auto
+msgid "Model"
+msgstr "मॉडल"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__kilometraje_auto
+msgid "Odometer"
+msgstr "ओडोमीटर"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__selected_car_id
+msgid "Selected Vehicle"
+msgstr "चयनित वाहन"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__placas_auto
+msgid "Vehicle registration"
+msgstr "वाहन पंजीकरण"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+msgid "Vehicles"
+msgstr "वाहन"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Customer Vehicles"
+msgstr "ग्राहक वाहन"
