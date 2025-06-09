@@ -10,23 +10,25 @@
                     <page name="autos" string="Vehicles">
                         <field name="car_ids" groups="workshop_mechanic.group_car_user">
                             <tree string="Vehicles">
-                                <field name="nombre_auto" string="Vehicles"/>
-                                <field name="marca_auto" string="Vehicle Brand"/>
-                                <field name="modelo_auto" string="Vehicle model"/>
-                                <field name="color_auto" string="Color"/>
-                                <field name="placas_auto" string="Vehicle registration"/>   
-                                <field name="kilometraje_auto" string="Odometer"/>
-                                <field name="tanque_gasolina" string="Fuel tank"/>
+                                <field name="marca_auto" string="Brand" translate="1"/>
+                                <field name="nombre_auto" string="Vehicles" translate="1"/>
+                                <!--<field name="modelo_auto" string="Vehicle model" translate="1"/>-->
+                                <field name="modelo_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                                <field name="color_auto" string="Color" translate="1"/>
+                                <field name="placas_auto" string="Vehicle registration" translate="1"/>   
+                                <field name="kilometraje_auto" string="Odometer" translate="1"/>
+                                <field name="tanque_gasolina" string="Fuel tank" translate="1"/>
                             </tree>
                             <form string="Vehicle">
                                 <group>
-                                    <field name="nombre_auto" string="Vehicles"/>
-                                    <field name="marca_auto" string="Vehicle Brand"/>
-                                    <field name="modelo_auto" string="Vehicle model"/>
-                                    <field name="color_auto" string="Color"/>
-                                    <field name="placas_auto" string="Vehicle registration"/>
-                                    <field name="kilometraje_auto" string="Odometer"/>
-                                    <field name="tanque_gasolina" string="Fuel tank"/>
+                                    <field name="marca_auto" string="Brand" translate="1"/>
+                                    <field name="nombre_auto" string="Vehicles" translate="1"/>
+                                    <!--<field name="modelo_auto" string="Vehicle model" translate="1"/>-->
+                                    <field name="modelo_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                                    <field name="color_auto" string="Color" translate="1"/>
+                                    <field name="placas_auto" string="Vehicle registration" translate="1"/>
+                                    <field name="kilometraje_auto" string="Odometer" translate="1"/>
+                                    <field name="tanque_gasolina" string="Fuel tank" translate="1"/>
                                 </group>
                             </form>
                         </field>

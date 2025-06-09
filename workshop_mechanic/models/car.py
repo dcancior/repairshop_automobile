@@ -3,14 +3,20 @@
 # https://www.dcrsoluciones.com
 
 from odoo import fields, models
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
 
 class Car(models.Model):
     _name = 'car'
     _description = 'Car'
-
-    nombre_auto = fields.Char(string='Car Name', required=False)
     marca_auto = fields.Char(string='Brand')
-    modelo_auto = fields.Char(string='Model')
+    nombre_auto = fields.Char(string='Car Name', required=False)
+    #modelo_auto = fields.Char(string='Model')
+    modelo_auto = fields.Selection(
+        selection='_get_years',
+        string='Model Year',
+        help='Select the vehicle model year'
+    )
     color_auto = fields.Char(string='Color')
     kilometraje_auto = fields.Integer(string='Odometer')
     placas_auto = fields.Char(string='Vehicle registration')
@@ -31,3 +37,11 @@ class Car(models.Model):
             name = f"{record.nombre_auto} ({record.marca_auto} {record.modelo_auto})"
             result.append((record.id, name))
         return result
+
+    def _get_years(self):
+        current_year = datetime.now().year
+        years = []
+        # Genera años desde 1950 hasta el año actual
+        for year in range(current_year, 1989, -1):
+            years.append((str(year), str(year)))
+        return years

@@ -28,8 +28,8 @@ class AccountMove(models.Model):
             if sale_order:
                 datos_vehiculo = f"""
 🚗 *Datos del Vehículo:*
-• Nombre: {sale_order.nombre_auto or '-'}
 • Marca: {sale_order.marca_auto or '-'}
+• Nombre: {sale_order.nombre_auto or '-'}
 • Modelo: {sale_order.modelo_auto or '-'}
 • Kilometraje: {sale_order.kilometraje_auto or '-'} km
 • Placas: {sale_order.placas_auto or '-'}
