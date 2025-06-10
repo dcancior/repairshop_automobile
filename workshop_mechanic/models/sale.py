@@ -35,8 +35,7 @@ class SaleOrder(models.Model):
 
     marca_auto = fields.Char(string='Brand')
     nombre_auto = fields.Char(string='Car Name')
-    #modelo_auto = fields.Char(string='Model')
-    modelo_auto = fields.Selection(
+    anio_auto = fields.Selection(
         selection='_get_years',
         string='Model Year',
         help='Select the vehicle model year'
@@ -53,13 +52,14 @@ class SaleOrder(models.Model):
         ],
         string='Fuel tank'
     )
+    observations = fields.Text(string='Observation')
 
     @api.onchange('selected_car_id')
     def _onchange_selected_car_id(self):
         if self.selected_car_id:
             self.marca_auto = self.selected_car_id.marca_auto
             self.nombre_auto = self.selected_car_id.nombre_auto
-            self.modelo_auto = self.selected_car_id.modelo_auto
+            self.anio_auto = self.selected_car_id.anio_auto
             self.color_auto = self.selected_car_id.color_auto
             self.kilometraje_auto = self.selected_car_id.kilometraje_auto
             self.placas_auto = self.selected_car_id.placas_auto
@@ -67,7 +67,7 @@ class SaleOrder(models.Model):
         else:
             self.marca_auto = False
             self.nombre_auto = False
-            self.modelo_auto = False
+            self.anio_auto = False
             self.color_auto = False
             self.kilometraje_auto = False
             self.placas_auto = False
@@ -87,11 +87,11 @@ class SaleOrder(models.Model):
         _logger.info(f"Values ​​received in write: {vals}")
         res = super(SaleOrder, self).write(vals)
         
-        if any(field in vals for field in ['nombre_auto', 'marca_auto', 'modelo_auto', 'color_auto', 'kilometraje_auto', 'placas_auto', 'tanque_gasolina']):
+        if any(field in vals for field in ['nombre_auto', 'marca_auto', 'anio_auto', 'color_auto', 'kilometraje_auto', 'placas_auto', 'tanque_gasolina']):
             car_vals = {
                 'marca_auto': vals.get('marca_auto', self.marca_auto),
                 'nombre_auto': vals.get('nombre_auto', self.nombre_auto),
-                'modelo_auto': vals.get('modelo_auto', self.modelo_auto),
+                'anio_auto': vals.get('anio_auto', self.anio_auto),
                 'color_auto': vals.get('color_auto', self.color_auto),
                 'kilometraje_auto': vals.get('kilometraje_auto', self.kilometraje_auto),
                 'placas_auto': vals.get('placas_auto', self.placas_auto),
@@ -113,14 +113,14 @@ class SaleOrder(models.Model):
         
         # Preparar los valores del vehículo si hay datos
         if vals.get('partner_id') and any(field in vals for field in [
-            'nombre_auto', 'marca_auto', 'modelo_auto', 'color_auto',
+            'nombre_auto', 'marca_auto', 'anio_auto', 'color_auto',
             'kilometraje_auto', 'placas_auto', 'tanque_gasolina'
         ]):
             car_vals = {
                 'partner_id': vals['partner_id'],
                 'marca_auto': vals.get('marca_auto', ''),
                 'nombre_auto': vals.get('nombre_auto', ''),
-                'modelo_auto': vals.get('modelo_auto', ''),
+                'anio_auto': vals.get('anio_auto', ''),
                 'color_auto': vals.get('color_auto', ''),
                 'kilometraje_auto': vals.get('kilometraje_auto', 0),
                 'placas_auto': vals.get('placas_auto', ''),
@@ -149,7 +149,7 @@ class SaleOrder(models.Model):
     def _get_years(self):
         current_year = datetime.now().year
         years = []
-        # Genera años desde 1950 hasta el año actual
+        # Genera años desde 1990 hasta el año actual
         for year in range(current_year, 1989, -1):
             years.append((str(year), str(year)))
         return years

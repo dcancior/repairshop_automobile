@@ -81,7 +81,7 @@ msgid "Mechanical Workshop User"
 msgstr "Utilisateur Atelier Mécanique"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_car__modelo_auto
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__anio_auto
 msgid "Model"
 msgstr "Modèle"
 

@@ -61,6 +61,8 @@
         'views/sale_whatsapp.xml',
         'views/account_move_whatsapp_button.xml',
         'views/vistamobil.xml',
+        'views/car_model_menu.xml',
+        'views/car_model_views.xml',
     ],
 
     'assets': {},

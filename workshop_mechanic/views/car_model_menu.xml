@@ -1,0 +1,15 @@
+<odoo>
+    <record id="action_car_model" model="ir.actions.act_window">
+        <field name="name">Car Models</field>
+        <field name="res_model">car.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Crea y administra los modelos de vehículos disponibles para selección.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_car_model_root" name="Taller Mecánico"/>
+    <menuitem id="menu_car_model" name="Modelos de Autos" parent="menu_car_model_root" action="action_car_model"/>
+</odoo>

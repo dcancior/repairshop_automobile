@@ -30,10 +30,11 @@ class AccountMove(models.Model):
 🚗 *Datos del Vehículo:*
 • Marca: {sale_order.marca_auto or '-'}
 • Nombre: {sale_order.nombre_auto or '-'}
-• Modelo: {sale_order.modelo_auto or '-'}
+• Modelo: {sale_order.anio_auto or '-'}
 • Kilometraje: {sale_order.kilometraje_auto or '-'} km
 • Placas: {sale_order.placas_auto or '-'}
 • Tanque de gasolina: {sale_order.tanque_gasolina or '-'}
+• Observaciones: {sale_order.observations or '-'}
 """
             else:
                 datos_vehiculo = ""

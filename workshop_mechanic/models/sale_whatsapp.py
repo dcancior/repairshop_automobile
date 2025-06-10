@@ -41,7 +41,7 @@ class SaleOrder(models.Model):
 🚗 *Datos del Vehículo:*
 • Nombre: {self.nombre_auto or '-'}
 • Marca: {self.marca_auto or '-'}
-• Modelo: {self.modelo_auto or '-'}
+• Modelo: {self.anio_auto or '-'}
 • Kilometraje: {self.kilometraje_auto or '-'} km
 • Placas: {self.placas_auto or '-'}
 • Tanque de gasolina: {self.tanque_gasolina or '-'}

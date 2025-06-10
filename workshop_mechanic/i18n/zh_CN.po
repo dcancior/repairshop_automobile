@@ -91,7 +91,7 @@ msgid "Mobile Phone"
 msgstr "手机"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_car__modelo_auto
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__anio_auto
 msgid "Model"
 msgstr "型号"
 
