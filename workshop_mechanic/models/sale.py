@@ -33,8 +33,52 @@ class SaleOrder(models.Model):
         readonly=False
     )
 
-    marca_auto = fields.Char(string='Brand')
-    nombre_auto = fields.Char(string='Car Name')
+    #marca_auto = fields.Char(string='Brand')
+    marca_auto = fields.Selection(
+        selection=[
+            ('nissan', 'Nissan'),
+            ('chevrolet', 'Chevrolet'),
+            ('volkswagen', 'Volkswagen'),
+            ('toyota', 'Toyota'),
+            ('kia', 'Kia'),
+            ('honda', 'Honda'),
+            ('mazda', 'Mazda'),
+            ('hyundai', 'Hyundai'),
+            ('ford', 'Ford'),
+            ('renault', 'Renault'),
+            ('seat', 'SEAT'),
+            ('bmw', 'BMW'),
+            ('mercedes', 'Mercedes-Benz'),
+            ('audi', 'Audi'),
+            ('jeep', 'Jeep'),
+            ('ram', 'RAM'), 
+            ('crysler', 'Crysler'),
+            ('cadillac', 'Cadillac'),
+            ('gmc', 'GMC'),
+            ('dodge', 'Dodge'),
+            ('mitsubishi', 'Mitsubishi'),
+            ('peugeot', 'Peugeot'),
+            ('fiat', 'Fiat'),
+            ('subaru', 'Subaru'),
+            ('acura', 'Acura'),
+            ('lincoln', 'Lincoln'),
+            ('volvo', 'Volvo'),
+            ('chirey', 'Chirey'),
+            ('mg', 'MG'),
+            ('jac', 'JAC'),
+            ('baic', 'BAIC'),
+            ('foton', 'Foton'),
+            ('other', 'Otra marca'),
+        ],
+        string='Brand',
+        required=True,
+    )
+    #nombre_auto = fields.Char(string='Car Name')
+    nombre_auto = fields.Many2one(
+        'car.model',
+        string='Model',
+        domain="[('brand', '=', marca_auto)]"
+    )
     anio_auto = fields.Selection(
         selection='_get_years',
         string='Model Year',
@@ -57,8 +101,10 @@ class SaleOrder(models.Model):
     @api.onchange('selected_car_id')
     def _onchange_selected_car_id(self):
         if self.selected_car_id:
+            # Asigna primero la marca
             self.marca_auto = self.selected_car_id.marca_auto
-            self.nombre_auto = self.selected_car_id.nombre_auto
+            # Luego el modelo, ya que el dominio depende de la marca
+            self.nombre_auto = self.selected_car_id.nombre_auto.id if self.selected_car_id.nombre_auto else False
             self.anio_auto = self.selected_car_id.anio_auto
             self.color_auto = self.selected_car_id.color_auto
             self.kilometraje_auto = self.selected_car_id.kilometraje_auto
@@ -85,12 +131,18 @@ class SaleOrder(models.Model):
 
     def write(self, vals):
         _logger.info(f"Values ​​received in write: {vals}")
+        # Normaliza nombre_auto a un ID si es necesario
+        nombre_auto_val = vals.get('nombre_auto', self.nombre_auto)
+        if hasattr(nombre_auto_val, 'id'):
+            nombre_auto_id = nombre_auto_val.id
+        else:
+            nombre_auto_id = nombre_auto_val or (self.nombre_auto.id if self.nombre_auto else False)
         res = super(SaleOrder, self).write(vals)
         
         if any(field in vals for field in ['nombre_auto', 'marca_auto', 'anio_auto', 'color_auto', 'kilometraje_auto', 'placas_auto', 'tanque_gasolina']):
             car_vals = {
                 'marca_auto': vals.get('marca_auto', self.marca_auto),
-                'nombre_auto': vals.get('nombre_auto', self.nombre_auto),
+                'nombre_auto': nombre_auto_id,
                 'anio_auto': vals.get('anio_auto', self.anio_auto),
                 'color_auto': vals.get('color_auto', self.color_auto),
                 'kilometraje_auto': vals.get('kilometraje_auto', self.kilometraje_auto),
@@ -110,7 +162,11 @@ class SaleOrder(models.Model):
         cuando se crea una nueva cotización.
         """
         _logger.info(f"Values ​​received in create: {vals}")
-        
+        nombre_auto_val = vals.get('nombre_auto')
+        if hasattr(nombre_auto_val, 'id'):
+            nombre_auto_id = nombre_auto_val.id
+        else:
+            nombre_auto_id = nombre_auto_val or False
         # Preparar los valores del vehículo si hay datos
         if vals.get('partner_id') and any(field in vals for field in [
             'nombre_auto', 'marca_auto', 'anio_auto', 'color_auto',
@@ -119,7 +175,7 @@ class SaleOrder(models.Model):
             car_vals = {
                 'partner_id': vals['partner_id'],
                 'marca_auto': vals.get('marca_auto', ''),
-                'nombre_auto': vals.get('nombre_auto', ''),
+                'nombre_auto': nombre_auto_id,
                 'anio_auto': vals.get('anio_auto', ''),
                 'color_auto': vals.get('color_auto', ''),
                 'kilometraje_auto': vals.get('kilometraje_auto', 0),
