@@ -149,5 +149,3 @@ class Car(models.Model):
         for year in range(current_year, 1989, -1):
             years.append((str(year), str(year)))
         return years
-
-        

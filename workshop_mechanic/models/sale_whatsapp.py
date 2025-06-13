@@ -39,8 +39,8 @@ class SaleOrder(models.Model):
             # Datos del vehículo
             datos_vehiculo = f"""
 🚗 *Datos del Vehículo:*
-• Nombre: {self.nombre_auto or '-'}
 • Marca: {self.marca_auto or '-'}
+• Nombre: {self.nombre_auto or '-'}
 • Modelo: {self.anio_auto or '-'}
 • Kilometraje: {self.kilometraje_auto or '-'} km
 • Placas: {self.placas_auto or '-'}

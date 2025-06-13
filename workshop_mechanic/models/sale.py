@@ -110,6 +110,7 @@ class SaleOrder(models.Model):
             self.kilometraje_auto = self.selected_car_id.kilometraje_auto
             self.placas_auto = self.selected_car_id.placas_auto
             self.tanque_gasolina = self.selected_car_id.tanque_gasolina
+            self.observations = self.selected_car_id.observations
         else:
             self.marca_auto = False
             self.nombre_auto = False
@@ -118,6 +119,7 @@ class SaleOrder(models.Model):
             self.kilometraje_auto = False
             self.placas_auto = False
             self.tanque_gasolina = False
+            self.observations = False
 
     def _update_car_data(self, car_vals):
         """
@@ -148,11 +150,11 @@ class SaleOrder(models.Model):
                 'kilometraje_auto': vals.get('kilometraje_auto', self.kilometraje_auto),
                 'placas_auto': vals.get('placas_auto', self.placas_auto),
                 'tanque_gasolina': vals.get('tanque_gasolina', self.tanque_gasolina),
+                'observations': vals.get('observations', self.observations),
             }
             updated_car = self._update_car_data(car_vals)
             if updated_car:
                 vals['selected_car_id'] = updated_car.id
-
         return res
 
     @api.model
@@ -181,6 +183,7 @@ class SaleOrder(models.Model):
                 'kilometraje_auto': vals.get('kilometraje_auto', 0),
                 'placas_auto': vals.get('placas_auto', ''),
                 'tanque_gasolina': vals.get('tanque_gasolina', '1/4 de tanque'),
+                'observations': vals.get('observations', ''),
             }
 
             # Si hay un vehículo seleccionado, actualizar ese
