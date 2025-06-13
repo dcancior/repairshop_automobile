@@ -109,8 +109,11 @@ class Car(models.Model):
     )
 
     color_auto = fields.Char(string='Color')
+
     kilometraje_auto = fields.Integer(string='Odometer')
+
     placas_auto = fields.Char(string='Vehicle registration')
+
     tanque_gasolina = fields.Selection(
         selection=[
             ('1/4 de tanque', '1/4 tank'),
@@ -120,7 +123,9 @@ class Car(models.Model):
         ],
         string='Fuel tank'
     )
+
     observations = fields.Text(string='Observation')
+    
     partner_id = fields.Many2one('res.partner', string='Customer')
 
     @api.onchange('marca_auto')
@@ -144,5 +149,3 @@ class Car(models.Model):
         for year in range(current_year, 1989, -1):
             years.append((str(year), str(year)))
         return years
-
-        
