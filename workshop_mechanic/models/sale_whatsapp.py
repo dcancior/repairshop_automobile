@@ -40,11 +40,12 @@ class SaleOrder(models.Model):
             datos_vehiculo = f"""
 🚗 *Datos del Vehículo:*
 • Marca: {self.marca_auto or '-'}
-• Nombre: {self.nombre_auto or '-'}
+• Nombre: {self.nombre_auto.name if self.nombre_auto else '-'}
 • Modelo: {self.anio_auto or '-'}
 • Kilometraje: {self.kilometraje_auto or '-'} km
 • Placas: {self.placas_auto or '-'}
 • Tanque de gasolina: {self.tanque_gasolina or '-'}
+• Observaciones: {self.observations or '-'}
 """ 
             # Generar links de acceso con access_token
             base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
