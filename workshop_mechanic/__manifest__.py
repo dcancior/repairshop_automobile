@@ -63,6 +63,9 @@
         'views/vistamobil.xml',
         'views/car_model_menu.xml',
         'views/car_model_views.xml',
+        'views/anticipos.xml',
+        'views/vistamobil.xml',
+        'views/change_name.xml',
     ],
 
     'assets': {},
