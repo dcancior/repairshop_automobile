@@ -7,26 +7,28 @@
             <field name="arch" type="xml">
                 <!-- Añadir una nueva página antes de la página Contacts & Addresses -->
                 <xpath expr="//page[@name='contact_addresses']" position="before">
-                    <page name="autos" string="Vehicles">
+                    <page name="autos" string="Vehicles" translate="1">
                         <field name="car_ids" groups="workshop_mechanic.group_car_user">
-                            <tree string="Vehicles">
-                                <field name="nombre_auto" string="Vehicles"/>
-                                <field name="marca_auto" string="Vehicle Brand"/>
-                                <field name="modelo_auto" string="Vehicle model"/>
-                                <field name="color_auto" string="Color"/>
-                                <field name="placas_auto" string="Vehicle registration"/>   
-                                <field name="kilometraje_auto" string="Odometer"/>
-                                <field name="tanque_gasolina" string="Fuel tank"/>
+                            <tree string="Vehicles" translate="1">
+                                <field name="marca_auto" string="Brand" widget="selection" translate="1"/>
+                                <field name="nombre_auto" string="Vehicle Name" widget="selection" translate="1"/>
+                                <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                                <field name="color_auto" string="Color" translate="1"/>
+                                <field name="placas_auto" string="Vehicle registration" translate="1"/>   
+                                <field name="kilometraje_auto" string="Odometer" translate="1"/>
+                                <field name="tanque_gasolina" string="Fuel tank" translate="1"/>
+                                <field name="observations" string="Observations" translate="1"/>
                             </tree>
-                            <form string="Vehicle">
+                            <form string="Vehicle" translate="1">
                                 <group>
-                                    <field name="nombre_auto" string="Vehicles"/>
-                                    <field name="marca_auto" string="Vehicle Brand"/>
-                                    <field name="modelo_auto" string="Vehicle model"/>
-                                    <field name="color_auto" string="Color"/>
-                                    <field name="placas_auto" string="Vehicle registration"/>
-                                    <field name="kilometraje_auto" string="Odometer"/>
-                                    <field name="tanque_gasolina" string="Fuel tank"/>
+                                    <field name="marca_auto" string="Brand" widget="selection" translate="1"/>
+                                    <field name="nombre_auto" string="Vehicle Name" widget="selection" translate="1"/>
+                                    <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                                    <field name="color_auto" string="Color" translate="1"/>
+                                    <field name="placas_auto" string="Vehicle registration" translate="1"/>
+                                    <field name="kilometraje_auto" string="Odometer" translate="1"/>
+                                    <field name="tanque_gasolina" string="Fuel tank" translate="1"/>
+                                    <field name="observations" string="Observations" translate="1"/>
                                 </group>
                             </form>
                         </field>
@@ -35,5 +37,4 @@
             </field>
         </record>
     </data>
-</odoo>
-                   
+</odoo>      

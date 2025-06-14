@@ -21,15 +21,17 @@
                     <group string="Customer Vehicles" translate="1">
                         <group>
                             <field name="selected_car_id" string="Selected Vehicle" widget="many2one" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id}" options="{'no_create_edit': False}" translate="1"/>
-                            <field name="nombre_auto" string="Vehicle Name" translate="1"/>
-                            <field name="marca_auto" string="Brand" translate="1"/>
-                            <field name="modelo_auto" string="Model" translate="1"/>
+                            <field name="marca_auto" string="Brand" widget="selection" translate="1"/>
+                            <field name="nombre_auto" string="Vehicle Name" widget="selection" translate="1"/>
+                            <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                            
                         </group>
                         <group>
                             <field name="color_auto" string="Color" translate="1"/>
-                            <field name="placas_auto" string="Vehicle registration" translate="1"/>   
+                            <field name="placas_auto" string="Vehicle registration" translate="1"/>  
                             <field name="kilometraje_auto" string="Odometer" translate="1"/>
                             <field name="tanque_gasolina" string="Fuel Tank" translate="1"/>
+                            <field name="observations" string="Observations" translate="1"/>
                         </group>
                     </group>
                 </xpath>
