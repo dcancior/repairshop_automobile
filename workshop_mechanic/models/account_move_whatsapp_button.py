@@ -32,6 +32,8 @@ class AccountMove(models.Model):
 • Nombre: {sale_order.nombre_auto or '-'}
 • Modelo: {sale_order.anio_auto or '-'}
 • Kilometraje: {sale_order.kilometraje_auto or '-'} km
+• Color: {sale_order.color_auto or '-'}
+• Número de serie: {sale_order.serie_auto or '-'}
 • Placas: {sale_order.placas_auto or '-'}
 • Tanque de gasolina: {sale_order.tanque_gasolina or '-'}
 • Observaciones: {sale_order.observations or '-'}

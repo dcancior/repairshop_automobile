@@ -86,7 +86,21 @@ class SaleOrder(models.Model):
     )
     color_auto = fields.Char(string='Color')                               
     kilometraje_auto = fields.Integer(string='Odometer')
+    serie_auto = fields.Char(string='VIN')
+    
+    reception_date = fields.Datetime(
+        string='Fecha de Recepción',
+        help='Fecha y hora en que el vehículo fue recibido en el taller'
+    )
+    entrega_date = fields.Datetime(
+        string='Fecha de Entrega',
+        help='Fecha y hora en que el vehículo fue entregado al cliente'
+    )
+
+
     placas_auto = fields.Char(string='Vehicle registration')
+
+    
     tanque_gasolina = fields.Selection(
         selection=[
             ('1/4 de tanque', '1/4 tank'),
@@ -108,6 +122,7 @@ class SaleOrder(models.Model):
             self.anio_auto = self.selected_car_id.anio_auto
             self.color_auto = self.selected_car_id.color_auto
             self.kilometraje_auto = self.selected_car_id.kilometraje_auto
+            self.serie_auto = self.selected_car_id.serie_auto
             self.placas_auto = self.selected_car_id.placas_auto
             self.tanque_gasolina = self.selected_car_id.tanque_gasolina
             self.observations = self.selected_car_id.observations
@@ -117,6 +132,7 @@ class SaleOrder(models.Model):
             self.anio_auto = False
             self.color_auto = False
             self.kilometraje_auto = False
+            self.serie_auto = False
             self.placas_auto = False
             self.tanque_gasolina = False
             self.observations = False
@@ -148,6 +164,7 @@ class SaleOrder(models.Model):
                 'anio_auto': vals.get('anio_auto', self.anio_auto),
                 'color_auto': vals.get('color_auto', self.color_auto),
                 'kilometraje_auto': vals.get('kilometraje_auto', self.kilometraje_auto),
+                'serie_auto': vals.get('serie_auto', self.serie_auto),
                 'placas_auto': vals.get('placas_auto', self.placas_auto),
                 'tanque_gasolina': vals.get('tanque_gasolina', self.tanque_gasolina),
                 'observations': vals.get('observations', self.observations),
@@ -181,6 +198,7 @@ class SaleOrder(models.Model):
                 'anio_auto': vals.get('anio_auto', ''),
                 'color_auto': vals.get('color_auto', ''),
                 'kilometraje_auto': vals.get('kilometraje_auto', 0),
+                'serie_auto': vals.get('serie_auto', ''),
                 'placas_auto': vals.get('placas_auto', ''),
                 'tanque_gasolina': vals.get('tanque_gasolina', '1/4 de tanque'),
                 'observations': vals.get('observations', ''),

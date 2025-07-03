@@ -1,0 +1,40 @@
+<odoo>
+  <template id="report_saleorder_document_inherit_vehicle" inherit_id="sale.report_saleorder_document">
+    <xpath expr="//div[@class='page']" position="inside">
+      <t t-foreach="docs" t-as="o">
+        <div style="border:2px solid #888; border-radius:8px; padding:12px; margin-top:24px;">
+          <h4 style="margin-bottom:8px; color:#444;">Datos del Vehículo</h4>
+          <table style="width:100%; font-size:13px;">
+            <tr>
+              <td><strong>Marca:</strong></td>
+              <td><t t-esc="o.marca_auto or ''"/></td>
+              <td><strong>Modelo:</strong></td>
+              <td><t t-esc="o.nombre_auto or ''"/></td>
+              <td><strong>Año:</strong></td>
+              <td><t t-esc="o.anio_auto or ''"/></td>
+            </tr>
+            <tr>
+              <td><strong>Color:</strong></td>
+              <td><t t-esc="o.color_auto or ''"/></td>
+              <td><strong>VIN:</strong></td>
+              <td><t t-esc="o.serie_auto or ''"/></td>
+              <td><strong>Placas:</strong></td>
+              <td><t t-esc="o.placas_auto or ''"/></td>
+            </tr>
+            <tr>
+              <td><strong>Kilometraje:</strong></td>
+              <td><t t-esc="o.kilometraje_auto or ''"/></td>
+              <td><strong>Tanque Gasolina:</strong></td>
+              <td><t t-esc="o.tanque_gasolina or ''"/></td>
+              
+            </tr>
+            <tr>
+              <td><strong>Observaciones:</strong></td>
+              <td><t t-esc="o.observations or ''"/></td>
+            </tr>
+          </table>
+        </div>
+      </t>
+    </xpath>
+  </template>
+</odoo>

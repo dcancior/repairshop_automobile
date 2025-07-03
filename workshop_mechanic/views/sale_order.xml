@@ -27,12 +27,31 @@
                             <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
                         </group>
                         <group>
+                            <field name="serie_auto" string="VIN" translate="1"/>
                             <field name="placas_auto" string="Vehicle registration" translate="1"/>
                             <field name="kilometraje_auto" string="Odometer" translate="1"/>
                             <field name="tanque_gasolina" string="Fuel Tank" translate="1"/>
                             <field name="observations" string="Observations" translate="1"/>
+                            <field name="reception_date" string="Fecha recepción" widget="datetime" translate="1"/>
+                            <field name="entrega_date" string="Fecha entrega" widget="datetime" translate="1"/>
                         </group>
                     </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!--
+        Add button in the view list model sale order list 
+        -->
+        <record id="view_sale_order_tree_inherit_car_description" model="ir.ui.view">
+            <field name="name">sale.order.tree.inherit.car.description</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="car_description"/>
+                    <field name="reception_date" string="Fecha recepción"/>
+                    <field name="entrega_date" string="Fecha entrega"/>
                 </xpath>
             </field>
         </record>

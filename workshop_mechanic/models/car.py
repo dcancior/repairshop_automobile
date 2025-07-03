@@ -114,6 +114,8 @@ class Car(models.Model):
 
     placas_auto = fields.Char(string='Vehicle registration')
 
+    serie_auto = fields.Char(string='Número de serie')
+
     tanque_gasolina = fields.Selection(
         selection=[
             ('1/4 de tanque', '1/4 tank'),
@@ -125,7 +127,19 @@ class Car(models.Model):
     )
 
     observations = fields.Text(string='Observation')
+
+    reception_date = fields.Datetime(
+        string='Fecha de Recepción',
+        help='Fecha y hora en que el vehículo fue recibido en el taller'
+    )
+
+    entrega_date = fields.Datetime(
+        string='Fecha de Recepción',
+        help='Fecha y hora en que el vehículo fue recibido en el taller'
+    )
     
+    
+
     partner_id = fields.Many2one('res.partner', string='Customer')
 
     @api.onchange('marca_auto')

@@ -43,6 +43,8 @@ class SaleOrder(models.Model):
 • Nombre: {self.nombre_auto.name if self.nombre_auto else '-'}
 • Modelo: {self.anio_auto or '-'}
 • Kilometraje: {self.kilometraje_auto or '-'} km
+• Color: {self.color_auto or '-'}
+• Número de serie: {self.serie_auto or '-'}
 • Placas: {self.placas_auto or '-'}
 • Tanque de gasolina: {self.tanque_gasolina or '-'}
 • Observaciones: {self.observations or '-'}

@@ -10,6 +10,8 @@ from . import sale_order_line_inherit_view
 from . import account_move_view_margin
 from . import sale_whatsapp
 from . import account_move_whatsapp_button
+from . import sale_order
+
 
 
 
