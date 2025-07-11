@@ -20,18 +20,18 @@
                 <xpath expr="//notebook" position="before">
                     <group string="Customer Vehicles" translate="1">
                         <group>
-                            <field name="selected_car_id" string="Selected Vehicle" widget="many2one" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id}" options="{'no_create_edit': False}" translate="1"/>
-                            <field name="marca_auto" string="Brand" widget="selection" translate="1"/>
-                            <field name="nombre_auto" string="Vehicle Name" widget="selection" translate="1"/>
-                            <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                            <field name="selected_car_id" string="Vehículo seleccionado" widget="many2one" domain="[('partner_id', '=', partner_id)]" context="{'default_partner_id': partner_id}" options="{'no_create_edit': False}" translate="1"/>
+                            <field name="marca_auto" string="Marca" widget="selection" translate="1"/>
+                            <field name="nombre_auto" string="Nombre" widget="selection" translate="1"/>
+                            <field name="anio_auto" string="Modelo" widget="selection" options="{'yearpicker': true}" translate="1"/>
                             <field name="serie_auto" string="VIN" translate="1"/>
                         </group>
                         <group>
                             <field name="color_auto" string="Color" translate="1"/>
-                            <field name="placas_auto" string="Vehicle registration" translate="1"/>  
-                            <field name="kilometraje_auto" string="Odometer" translate="1"/>
-                            <field name="tanque_gasolina" string="Fuel Tank" translate="1"/>
-                            <field name="observations" string="Observations" translate="1"/>
+                            <field name="placas_auto" string="Placas" translate="1"/>  
+                            <field name="kilometraje_auto" string="Kilometraje" translate="1"/>
+                            <field name="tanque_gasolina" string="Combustible" translate="1"/>
+                            <field name="observations" string="Observaciones" translate="1"/>
                             <field name="reception_date" string="Fecha recepción" widget="datetime" translate="1"/>
                             <field name="entrega_date" string="Fecha entrega" widget="datetime" translate="1"/>
                         </group>

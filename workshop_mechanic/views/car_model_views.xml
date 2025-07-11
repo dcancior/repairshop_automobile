@@ -3,7 +3,7 @@
         <field name="name">car.model.tree</field>
         <field name="model">car.model</field>
         <field name="arch" type="xml">
-            <tree string="Car Models">
+            <tree string="Autos">
                 <field name="name" required="1"/>
                 <field name="brand"/>
             </tree>

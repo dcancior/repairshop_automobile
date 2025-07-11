@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="sale.view_quotation_tree"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='amount_total']" position="after">
-                    <field name="margin" string="Margin" sum="Total Margen" widget="monetary" optional="show"/>
+                    <field name="margin" string="Margen" sum="Total Margen" widget="monetary" optional="show"/>
                     
                 </xpath>
             </field>

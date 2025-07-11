@@ -7,30 +7,30 @@
             <field name="arch" type="xml">
                 <!-- Añadir una nueva página antes de la página Contacts & Addresses -->
                 <xpath expr="//page[@name='contact_addresses']" position="before">
-                    <page name="autos" string="Vehicles" translate="1">
+                    <page name="autos" string="Vehículos" translate="1">
                         <field name="car_ids" groups="workshop_mechanic.group_car_user">
-                            <tree string="Vehicles" translate="1">
-                                <field name="marca_auto" string="Brand" widget="selection" translate="1"/>
-                                <field name="nombre_auto" string="Vehicle Name" widget="selection" translate="1"/>
-                                <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                            <tree string="Vehículos" translate="1">
+                                <field name="marca_auto" string="Marca" widget="selection" translate="1"/>
+                                <field name="nombre_auto" string="Nombre" widget="selection" translate="1"/>
+                                <field name="anio_auto" string="Modelo" widget="selection" options="{'yearpicker': true}" translate="1"/>
                                 <field name="serie_auto" string="VIN" translate="1"/>
                                 <field name="color_auto" string="Color" translate="1"/>
-                                <field name="placas_auto" string="Vehicle registration" translate="1"/>   
-                                <field name="kilometraje_auto" string="Odometer" translate="1"/>
-                                <field name="tanque_gasolina" string="Fuel tank" translate="1"/>
-                                <field name="observations" string="Observations" translate="1"/>
+                                <field name="placas_auto" string="Placas" translate="1"/>   
+                                <field name="kilometraje_auto" string="Kilometraje" translate="1"/>
+                                <field name="tanque_gasolina" string="Combustible" translate="1"/>
+                                <field name="observations" string="Observaciones" translate="1"/>
                             </tree>
                             <form string="Vehicle" translate="1">
                                 <group>
-                                    <field name="marca_auto" string="Brand" widget="selection" translate="1"/>
-                                    <field name="nombre_auto" string="Vehicle Name" widget="selection" translate="1"/>
-                                    <field name="anio_auto" string="Model" widget="selection" options="{'yearpicker': true}" translate="1"/>
+                                    <field name="marca_auto" string="Marca" widget="selection" translate="1"/>
+                                    <field name="nombre_auto" string="Nombre" widget="selection" translate="1"/>
+                                    <field name="anio_auto" string="Modelo" widget="selection" options="{'yearpicker': true}" translate="1"/>
                                     <field name="serie_auto" string="VIN" translate="1"/>
                                     <field name="color_auto" string="Color" translate="1"/>
-                                    <field name="placas_auto" string="Vehicle registration" translate="1"/>
-                                    <field name="kilometraje_auto" string="Odometer" translate="1"/>
-                                    <field name="tanque_gasolina" string="Fuel tank" translate="1"/>
-                                    <field name="observations" string="Observations" translate="1"/>
+                                    <field name="placas_auto" string="Placas" translate="1"/>
+                                    <field name="kilometraje_auto" string="Kilometraje" translate="1"/>
+                                    <field name="tanque_gasolina" string="Combustible" translate="1"/>
+                                    <field name="observations" string="Observaciones" translate="1"/>
                                     <field name="reception_date" string="Fecha recepción" widget="datetime" translate="1"/>
                                     <field name="entrega_date" string="Fecha entrega" widget="datetime" translate="1"/> 
                                 </group>
