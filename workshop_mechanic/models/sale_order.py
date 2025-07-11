@@ -1,10 +1,10 @@
-from odoo import models, fields
+from odoo import models, fields, _
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     car_description = fields.Char(
-        string='Vehículo',
+        string=_('Vehículo'),
         compute='_compute_car_description',
         store=True
     )

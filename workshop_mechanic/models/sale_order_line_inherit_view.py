@@ -2,19 +2,19 @@
 # DCR INFORMATIC SERVICES SAS DE CV
 # https://www.dcrsoluciones.com
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     purchase_price = fields.Float(
-        string='Purchase price',
+        string=_('Precio de compra'),
         digits='Product Price',
         store=True
     )
 
     margin = fields.Float(
-        string='Margin',
+        string=_('Margen'),
         compute='_compute_margin',
         store=True
     )
@@ -35,7 +35,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     margin = fields.Monetary(
-        string='Margin',
+        string=_('Margen'),
         compute='_compute_margin',
         store=True
     )

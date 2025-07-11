@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import UserError
 import urllib.parse
 import logging
@@ -9,7 +9,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     partner_mobile = fields.Char(
-        string="Teléfono Móvil",
+        string=_("Teléfono Móvil"),
         related="partner_id.mobile",
         store=True,
         readonly=False,
@@ -20,61 +20,81 @@ class SaleOrder(models.Model):
         self.ensure_one()
         
         if not self.partner_mobile:
-            raise UserError('El cliente no tiene número de teléfono móvil registrado.')
+            raise UserError(_('El cliente no tiene número de teléfono móvil registrado.'))
 
         try:
-            # Asegurar que exista access_token para acceso público
             if not self.access_token:
                 self._portal_ensure_token()
 
-            # Formatear el número de teléfono
             mobile = self.partner_mobile.replace(' ', '').replace('+', '').replace('-', '')
 
-            # Crear lista de productos cotizados
             productos = "\n".join([
-                f"🔹 {line.product_id.name}\n    🔸 Cantidad: {line.product_uom_qty}    💵 {line.price_total} {self.currency_id.name}"
+                _("🔹 {nombre}\n    🔸 Cantidad: {cantidad}    💵 {precio} {moneda}").format(
+                    nombre=line.product_id.name,
+                    cantidad=line.product_uom_qty,
+                    precio=line.price_total,
+                    moneda=self.currency_id.name
+                )
                 for line in self.order_line
             ])
 
-            # Datos del vehículo
-            datos_vehiculo = f"""
-🚗 *Datos del Vehículo:*
-• Marca: {self.marca_auto or '-'}
-• Nombre: {self.nombre_auto.name if self.nombre_auto else '-'}
-• Modelo: {self.anio_auto or '-'}
-• Kilometraje: {self.kilometraje_auto or '-'} km
-• Color: {self.color_auto or '-'}
-• Número de serie: {self.serie_auto or '-'}
-• Placas: {self.placas_auto or '-'}
-• Tanque de gasolina: {self.tanque_gasolina or '-'}
-• Observaciones: {self.observations or '-'}
-""" 
-            # Generar links de acceso con access_token
+            datos_vehiculo = _(
+                """🚗 *Datos del Vehículo:*
+• Marca: {marca}
+• Nombre: {nombre}
+• Modelo: {modelo}
+• Kilometraje: {km} km
+• Color: {color}
+• Número de serie: {serie}
+• Placas: {placas}
+• Tanque de gasolina: {tanque}
+• Observaciones: {observaciones}
+"""
+            ).format(
+                marca=self.marca_auto or '-',
+                nombre=self.nombre_auto.name if self.nombre_auto else '-',
+                modelo=self.anio_auto or '-',
+                km=self.kilometraje_auto or '-',
+                color=self.color_auto or '-',
+                serie=self.serie_auto or '-',
+                placas=self.placas_auto or '-',
+                tanque=self.tanque_gasolina or '-',
+                observaciones=self.observations or '-',
+            )
+
             base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
             pdf_url = f"{base_url}/report/pdf/sale.report_saleorder/{self.id}?access_token={self.access_token}"
             portal_url = f"{base_url}/my/orders/{self.id}?access_token={self.access_token}"
 
-            # Crear el mensaje de WhatsApp
-            message = f"""👋 ¡Hola {self.partner_id.name}!
+            message = _(
+                """👋 ¡Hola {cliente}!
 
-Tu cotización *{self.name}* está lista. Aquí tienes los detalles:
+Tu cotización *{cotizacion}* está lista. Aquí tienes los detalles:
 
 {datos_vehiculo}
 
 🛠️ *Servicios cotizados:*
 {productos}
 
-💰 *Total:* {self.amount_total} {self.currency_id.name}
+💰 *Total:* {total} {moneda}
 
 📄 Puedes revisar tu cotización en el siguiente link:
-{portal_url}
+{link}
 
 ¿Tienes alguna pregunta? ¡Estamos para servirte! 😊🔧"""
+            ).format(
+                cliente=self.partner_id.name,
+                cotizacion=self.name,
+                datos_vehiculo=datos_vehiculo,
+                productos=productos,
+                total=self.amount_total,
+                moneda=self.currency_id.name,
+                link=portal_url
+            )
 
-            # Crear la URL de WhatsApp
             whatsapp_url = f"https://wa.me/{mobile}?text={urllib.parse.quote(message)}"
-            # Marcar la cotización como enviada
             self.write({'state': 'sent'})
+
             return {
                 'type': 'ir.actions.act_url',
                 'url': whatsapp_url,
@@ -83,4 +103,4 @@ Tu cotización *{self.name}* está lista. Aquí tienes los detalles:
 
         except Exception as e:
             _logger.error(f"Error al enviar: {str(e)}")
-            raise UserError(f"Error al enviar mensaje: {str(e)}")
+            raise UserError(_('Error al enviar mensaje: {}').format(str(e)))

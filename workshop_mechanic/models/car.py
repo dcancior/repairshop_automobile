@@ -2,15 +2,15 @@
 # DCR INFORMATIC SERVICES SAS DE CV
 # https://www.dcrsoluciones.com
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 class CarModel(models.Model):
     _name = 'car.model'
-    _description = 'Car Model'
+    _description = _('Car Model')  # ← Esto también es traducible
 
-    name = fields.Char(string='Model Name', required=True )
+    name = fields.Char(string=_('Model Name'), required=True)
     brand = fields.Selection(
         selection=[
             ('nissan', 'Nissan'),
@@ -47,14 +47,14 @@ class CarModel(models.Model):
             ('foton', 'Foton'),
             ('other', 'Otra marca'),
         ],
-        string='Brand',
+        string=_('Marca'),
         required=True
     )
 
 
 class Car(models.Model):
     _name = 'car'
-    _description = 'Car'
+    _description = _('Car')
 
     marca_auto = fields.Selection(
         selection=[
@@ -92,55 +92,56 @@ class Car(models.Model):
             ('foton', 'Foton'),
             ('other', 'Otra marca'),
         ],
-        string='Brand',
+        string=_('Brand'),
         required=True,
     )
 
     nombre_auto = fields.Many2one(
         'car.model',
-        string='Model',
+        string=_('Model'),
         domain="[('brand', '=', marca_auto)]"
     )
 
     anio_auto = fields.Selection(
         selection=lambda self: self._get_years(),
-        string='Model Year',
-        help='Select the vehicle model year'
+        string=_('Año del autor'),
+        help=_('Selecciona el año del vehículo')
     )
 
-    color_auto = fields.Char(string='Color')
+    color_auto = fields.Char(string=_('Color'))
 
-    kilometraje_auto = fields.Integer(string='Odometer')
+    kilometraje_auto = fields.Integer(string=_('Kilometraje'))
 
-    placas_auto = fields.Char(string='Vehicle registration')
+    placas_auto = fields.Char(string=_('Placas'))
 
-    serie_auto = fields.Char(string='Número de serie')
+    serie_auto = fields.Char(string=_('VIN'))
 
     tanque_gasolina = fields.Selection(
         selection=[
-            ('1/4 de tanque', '1/4 tank'),
-            ('Medio tanque', 'Half tank'),
-            ('3/4 de tanque', '3/4 tank'),
-            ('Lleno', 'Full'),
+            ('1/4', _('1/4 tank')),
+            ('Medio tanque', _('Medio tanque')),
+            ('3/4', _('3/4')),
+            ('Lleno', _('Lleno')),
         ],
-        string='Fuel tank'
+        string=_('Combustible'),
+        help=_('Nivel de combustible del vehículo'),
     )
 
-    observations = fields.Text(string='Observation')
+    observations = fields.Text(string=_('Observaciones'))
 
     reception_date = fields.Datetime(
-        string='Fecha de Recepción',
-        help='Fecha y hora en que el vehículo fue recibido en el taller'
+        string=_('Fecha de recepción'),
+        help=_('Fecha y hora de recepción del vehículo en el taller.')
     )
 
     entrega_date = fields.Datetime(
-        string='Fecha de Recepción',
-        help='Fecha y hora en que el vehículo fue recibido en el taller'
+        string=_('Fecha de entrega'),
+        help=_('Fecha y hora en que el vehículo fue entregado al cliente')
     )
     
     
 
-    partner_id = fields.Many2one('res.partner', string='Customer')
+    partner_id = fields.Many2one('res.partner', string=_('Cliente'))
 
     @api.onchange('marca_auto')
     def _onchange_marca_auto(self):

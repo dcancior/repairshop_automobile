@@ -2,16 +2,16 @@
 # DCR INFORMATIC SERVICES SAS DE CV
 # https://www.dcrsoluciones.com
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
     margin = fields.Monetary(
-        string='Margin',
+        string=_('Margen'),
         compute='_compute_margin',
         store=True,
-        help='Total margin inherited from the sales order'
+        help=_('Margen total heredado de la orden de venta')
     )
 
     @api.depends('invoice_line_ids.sale_line_ids.margin')

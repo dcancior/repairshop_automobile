@@ -1,4 +1,4 @@
-from odoo import models
+from odoo import models, _
 from odoo.exceptions import UserError
 import urllib.parse
 import logging
@@ -10,11 +10,11 @@ class AccountMove(models.Model):
 
     def action_send_whatsapp(self):
         self.ensure_one()
+
         if not self.partner_id.mobile:
-            raise UserError('El cliente no tiene número de teléfono móvil registrado.')
+            raise UserError(_('El cliente no tiene número de teléfono móvil registrado.'))
 
         try:
-            # Asegurar que exista access_token
             if not self.access_token:
                 self._portal_ensure_token()
 
@@ -23,46 +23,68 @@ class AccountMove(models.Model):
             pdf_url = f"{base_url}/report/pdf/account.report_invoice_with_payments/{self.id}?access_token={self.access_token}"
             portal_url = f"{base_url}/my/invoices/{self.id}?access_token={self.access_token}"
 
-            # Buscar la orden de venta relacionada para obtener los datos del vehículo
             sale_order = self.env['sale.order'].search([('name', '=', self.invoice_origin)], limit=1)
             if sale_order:
-                datos_vehiculo = f"""
-🚗 *Datos del Vehículo:*
-• Marca: {sale_order.marca_auto or '-'}
-• Nombre: {sale_order.nombre_auto or '-'}
-• Modelo: {sale_order.anio_auto or '-'}
-• Kilometraje: {sale_order.kilometraje_auto or '-'} km
-• Color: {sale_order.color_auto or '-'}
-• Número de serie: {sale_order.serie_auto or '-'}
-• Placas: {sale_order.placas_auto or '-'}
-• Tanque de gasolina: {sale_order.tanque_gasolina or '-'}
-• Observaciones: {sale_order.observations or '-'}
-"""
+                datos_vehiculo = _(
+"""🚗 *Datos del Vehículo:*
+• Marca: {marca}
+• Nombre: {nombre}
+• Modelo: {modelo}
+• Kilometraje: {km} km
+• Color: {color}
+• Número de serie: {serie}
+• Placas: {placas}
+• Tanque de gasolina: {tanque}
+• Observaciones: {observaciones}
+""").format(
+                    marca=sale_order.marca_auto or '-',
+                    nombre=sale_order.nombre_auto or '-',
+                    modelo=sale_order.anio_auto or '-',
+                    km=sale_order.kilometraje_auto or '-',
+                    color=sale_order.color_auto or '-',
+                    serie=sale_order.serie_auto or '-',
+                    placas=sale_order.placas_auto or '-',
+                    tanque=sale_order.tanque_gasolina or '-',
+                    observaciones=sale_order.observations or '-',
+                )
             else:
                 datos_vehiculo = ""
 
-            # Servicios/productos facturados
             servicios = "\n".join([
-                f"🔹 {line.name}\n    🔸 Cantidad: {line.quantity}    💵 {line.price_total} {self.currency_id.name}"
+                _("🔹 {name}\n    🔸 Cantidad: {qty}    💵 {total} {currency}").format(
+                    name=line.name,
+                    qty=line.quantity,
+                    total=line.price_total,
+                    currency=self.currency_id.name
+                )
                 for line in self.invoice_line_ids
             ])
 
-            message = f"""👋 ¡Hola {self.partner_id.name}!
+            message = _(
+"""👋 ¡Hola {cliente}!
 
-Tu orden *{self.name}* está lista.
+Tu orden *{orden}* está lista.
 
 {datos_vehiculo}
 
 🛠️ *Servicios realizados:*
 {servicios}
 
-💰 *Total:* {self.amount_total} {self.currency_id.name}
+💰 *Total:* {total} {moneda}
 
 📄 Puedes descargar tu comprobante en PDF aquí:
-{portal_url}
-
+{portal}
 
 ¿Tienes alguna pregunta? ¡Estamos para servirte! 😊"""
+            ).format(
+                cliente=self.partner_id.name,
+                orden=self.name,
+                datos_vehiculo=datos_vehiculo,
+                servicios=servicios,
+                total=self.amount_total,
+                moneda=self.currency_id.name,
+                portal=portal_url
+            )
 
             whatsapp_url = f"https://wa.me/{mobile}?text={urllib.parse.quote(message)}"
 
@@ -71,6 +93,7 @@ Tu orden *{self.name}* está lista.
                 'url': whatsapp_url,
                 'target': 'new'
             }
+
         except Exception as e:
             _logger.error(f"Error al enviar: {str(e)}")
-            raise UserError(f"Error al enviar mensaje: {str(e)}")
+            raise UserError(_('Error al enviar mensaje: {}').format(str(e)))

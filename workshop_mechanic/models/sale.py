@@ -13,7 +13,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     partner_mobile = fields.Char(
-        string="Mobile Phone",
+        string=_("Teléfono Celular"),
         related="partner_id.mobile",
         store=True,
         readonly=False,
@@ -22,14 +22,14 @@ class SaleOrder(models.Model):
     car_ids = fields.One2many(
         comodel_name='car',
         inverse_name='partner_id',
-        string='Vehicles',
+        string=_('Vehículos'),
         readonly=False
     )
 
     selected_car_id = fields.Many2one(
         comodel_name='car',
-        string='Selected Vehicle',
-        help='Select the customers vehicle for this quote.',
+        string=_('Vehículo seleccionado'),
+        help=_('Selecciona un vehículo del cliente para esta cotización.'),
         readonly=False
     )
 
@@ -70,47 +70,48 @@ class SaleOrder(models.Model):
             ('foton', 'Foton'),
             ('other', 'Otra marca'),
         ],
-        string='Brand',
+        string=_('Marca'),
         required=True,
     )
     #nombre_auto = fields.Char(string='Car Name')
     nombre_auto = fields.Many2one(
         'car.model',
-        string='Model',
+        string=_('Model'),
         domain="[('brand', '=', marca_auto)]"
     )
     anio_auto = fields.Selection(
         selection='_get_years',
-        string='Model Year',
-        help='Select the vehicle model year'
+        string=_('Model Year'),
+        help=_('Seleccione el año del modelo del vehículo')
     )
-    color_auto = fields.Char(string='Color')                               
-    kilometraje_auto = fields.Integer(string='Odometer')
+    color_auto = fields.Char(string=_('Color'))                               
+    kilometraje_auto = fields.Integer(string=_('Kilometraje'))
     serie_auto = fields.Char(string='VIN')
     
     reception_date = fields.Datetime(
-        string='Fecha de Recepción',
-        help='Fecha y hora en que el vehículo fue recibido en el taller'
+        string=_('Fecha de Recepción'),
+        help=_('Fecha y hora en que el vehículo fue recibido en el taller')
     )
     entrega_date = fields.Datetime(
-        string='Fecha de Entrega',
-        help='Fecha y hora en que el vehículo fue entregado al cliente'
+        string=_('Fecha de Entrega'),
+        help=_('Fecha y hora en que el vehículo fue entregado al cliente')
     )
 
 
-    placas_auto = fields.Char(string='Vehicle registration')
+    placas_auto = fields.Char(string=_('Placas'))
 
     
     tanque_gasolina = fields.Selection(
         selection=[
-            ('1/4 de tanque', '1/4 tank'),
-            ('Medio tanque', 'Half tank'),
-            ('3/4 de tanque', '3/4 tank'),
-            ('Lleno', 'Full'),
+            ('1/4', _('1/4 tank')),
+            ('Medio tanque', _('Medio tanque')),
+            ('3/4', _('3/4')),
+            ('Lleno', _('Lleno')),
         ],
-        string='Fuel tank'
+        string=_('Combustible'),
+        help=_('Nivel de combustible del vehículo'),
     )
-    observations = fields.Text(string='Observation')
+    observations = fields.Text(string=_('Observaciones'))
 
     @api.onchange('selected_car_id')
     def _onchange_selected_car_id(self):
