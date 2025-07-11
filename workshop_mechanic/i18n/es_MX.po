@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0-20250311\n"
+"Project-Id-Version: Odoo Server 16.0-20250131\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-24 19:01+0000\n"
-"PO-Revision-Date: 2025-03-24 19:01+0000\n"
+"POT-Creation-Date: 2025-07-11 17:46+0000\n"
+"PO-Revision-Date: 2025-07-11 17:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,39 +16,156 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__1/4_de_tanque
-#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__1/4_de_tanque
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__1/4
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__1/4
 msgid "1/4 tank"
-msgstr "1/4 de tanque"
+msgstr "1/4 tanque"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__3/4_de_tanque
-#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__3/4_de_tanque
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__3/4
 msgid "3/4 tank"
-msgstr "3/4 de tanque"
+msgstr "3/4 tanque"
 
 #. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__3/4
+msgid "3/4 tank"
+msgstr "3/4 tanque"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Year:</strong>"
+msgstr "<strong>Año:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Color:</strong>"
+msgid "<strong>Color:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Odometer:</strong>"
+msgid "<strong>Kilometraje:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Brand:</strong>"
+msgid "<strong>Marca:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Model:</strong>"
+msgid "<strong>Modelo:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Observations:</strong>"
+msgid "<strong>Observaciones:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>License plates:</strong>"
+msgid "<strong>Placas:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>Fuel tank:</strong>"
+msgid "<strong>Tanque Gasolina:</strong>"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "<strong>VIN:</strong>"
+msgid "<strong>VIN:</strong>"
+
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__acura
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__acura
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__acura
+msgid "Acura"
+msgstr "Acura"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__audi
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__audi
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__audi
+msgid "Audi"
+msgstr "Audi"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_car_model_tree
+msgid "Cars"
+msgstr "Autos"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__baic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__baic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__baic
+msgid "BAIC"
+msgstr "BAIC"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__bmw
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__bmw
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__bmw
+msgid "BMW"
+msgstr "BMW"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__marca_auto
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__brand
 msgid "Brand"
 msgstr "Marca"
 
 #. module: workshop_mechanic
-#: model:ir.model,name:workshop_mechanic.model_car
-msgid "Car"
-msgstr "Car"
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__cadillac
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__cadillac
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__cadillac
+msgid "Cadillac"
+msgstr "Cadillac"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_car__nombre_auto
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__nombre_auto
-msgid "Car Name"
-msgstr "Nombre de Vehículo"
+#: model:ir.model,name:workshop_mechanic.model_car
+msgid "Car"
+msgstr "Auto"
+
+#. module: workshop_mechanic
+#: model:ir.model,name:workshop_mechanic.model_car_model
+msgid "Car Model"
+msgstr "Módelo de auto"
+
+#. module: workshop_mechanic
+#: model:ir.actions.act_window,name:workshop_mechanic.action_car_model
+msgid "Car Models"
+msgstr "Modelos de autos"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__chevrolet
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__chevrolet
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__chevrolet
+msgid "Chevrolet"
+msgstr "Chevrolet"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__chirey
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__chirey
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__chirey
+msgid "Chirey"
+msgstr "Chirey"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__color_auto
 #: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__color_auto
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
 msgid "Color"
 msgstr "Color"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__tanque_gasolina
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Combustible"
+msgstr "Tanque de Combustible"
 
 #. module: workshop_mechanic
 #: model:ir.model,name:workshop_mechanic.model_res_partner
@@ -56,14 +173,33 @@ msgid "Contact"
 msgstr "Contacto"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order_line__purchase_price
+msgid "Cost"
+msgstr "Costo"
+
+#. module: workshop_mechanic
+#: model_terms:ir.actions.act_window,help:workshop_mechanic.action_car_model
+msgid "Create and manage the vehicle models available for selection."
+msgstr "Crea y administra los modelos de vehículos disponibles para selección."
+
+#. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__create_uid
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__create_date
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__create_date
 msgid "Created on"
 msgstr "Creado en"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__crysler
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__crysler
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__crysler
+msgid "Crysler"
+msgstr "Crysler"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__partner_id
@@ -76,33 +212,159 @@ msgid "Customer Vehicles"
 msgstr "Vehículos del Cliente"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_car__entrega_date
+msgid "Date and time when the vehicle was delivered to the customer"
+msgstr "Fecha y hora en que se entregó el vehículo al cliente"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_car__reception_date
+msgid "Date and time when the vehicle was received"
+msgstr "Fecha y hora en que se recibió el vehículo"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.report_saleorder_document_inherit_vehicle
+msgid "Vehicle Data"
+msgstr "Datos del Vehículo"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__entrega_date
+msgid "Delivery Date"
+msgstr "Fecha de entrega"
+
+#. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__display_name
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__display_name
 msgid "Display Name"
 msgstr "Nombre para mostrar"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_car__tanque_gasolina
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__tanque_gasolina
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__dodge
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__dodge
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__dodge
+msgid "Dodge"
+msgstr "Dodge"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_move_form_inherit_whatsapp
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_whatsapp_button
+msgid "Send by WhatsApp"
+msgstr "Enviar por WhatsApp"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__entrega_date
+msgid "Delivery Date"
+msgstr "Fecha de Entrega"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__reception_date
+msgid "Date of Receipt"
+msgstr "Fecha de Recepción"
+
+#. module: workshop_mechanic
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
-msgid "Fuel tank"
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_tree_inherit_car_description
+msgid "Delivery date"
+msgstr "Fecha entrega"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_tree_inherit_car_description
+msgid "Date received"
+msgstr "Fecha recepción"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_sale_order__entrega_date
+msgid "Date and time the vehicle was delivered to the customer"
+msgstr "Fecha y hora en que el vehículo fue entregado al cliente"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_sale_order__reception_date
+msgid "Date and time the vehicle was received at the workshop"
+msgstr "Fecha y hora en que el vehículo fue recibido en el taller"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__fiat
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__fiat
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__fiat
+msgid "Fiat"
+msgstr "Fiat"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__ford
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__ford
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__ford
+msgid "Ford"
+msgstr "Ford"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__foton
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__foton
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__foton
+msgid "Foton"
+msgstr "Foton"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__tanque_gasolina
+msgid "Fuel level"
 msgstr "Tanque de Combustible"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_car__tanque_gasolina
+msgid "Fuel level in the vehicle at time of reception"
+msgstr "Nivel de combustible en el vehículo al momento de la recepción"
+
+#. module: workshop_mechanic
 #: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__lleno
-#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__lleno
 msgid "Full"
 msgstr "Lleno"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__gmc
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__gmc
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__gmc
+msgid "GMC"
+msgstr "GMC"
+
+#. module: workshop_mechanic
 #: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__tanque_gasolina__medio_tanque
-#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__medio_tanque
 msgid "Half tank"
 msgstr "Medio tanque"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__honda
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__honda
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__honda
+msgid "Honda"
+msgstr "Honda"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__hyundai
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__hyundai
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__hyundai
+msgid "Hyundai"
+msgstr "Hyundai"
+
+#. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__id
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__id
 msgid "ID"
 msgstr "ID"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__jac
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__jac
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__jac
+msgid "JAC"
+msgstr "JAC"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__jeep
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__jeep
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__jeep
+msgid "Jeep"
+msgstr "Jeep"
 
 #. module: workshop_mechanic
 #: model:ir.model,name:workshop_mechanic.model_account_move
@@ -110,30 +372,91 @@ msgid "Journal Entry"
 msgstr "Asiento contable"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__kia
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__kia
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__kia
+msgid "Kia"
+msgstr "Kia"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__kilometraje_auto
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Odometer"
+msgstr "Kilometraje"
+
+#. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car____last_update
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model____last_update
 msgid "Last Modified on"
 msgstr "Última modificación el"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__write_uid
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__write_date
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__lincoln
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__lincoln
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__lincoln
+msgid "Lincoln"
+msgstr "Lincoln"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__lleno
+msgid "Lleno"
+msgstr "Lleno"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__mg
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__mg
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__mg
+msgid "MG"
+msgstr "MG"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__marca_auto
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Brand"
+msgstr "Marca"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_account_bank_statement_line__margin
 #: model:ir.model.fields,field_description:workshop_mechanic.field_account_move__margin
 #: model:ir.model.fields,field_description:workshop_mechanic.field_account_payment__margin
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__margin
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order_line__margin
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_account_invoice_tree_inherit_margin
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_list_inherit_margin
 msgid "Margin"
 msgstr "Margen"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_account_bank_statement_line__margin
+#: model:ir.model.fields,help:workshop_mechanic.field_account_move__margin
+#: model:ir.model.fields,help:workshop_mechanic.field_account_payment__margin
+msgid "Total margin inherited from the sales order"
+msgstr "Margen total heredado de la orden de venta"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__margin
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order_line__margin
+msgid "Margin"
+msgstr "Margen"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__mazda
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__mazda
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__mazda
+msgid "Mazda"
+msgstr "Mazda"
 
 #. module: workshop_mechanic
 #: model:res.groups,name:workshop_mechanic.group_car_user
@@ -141,25 +464,142 @@ msgid "Mechanical Workshop User"
 msgstr "Usuario de taller mecánico"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__partner_mobile
-msgid "Mobile Phone"
-msgstr "Teléfono móvil"
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__tanque_gasolina__medio_tanque
+msgid "Half tank"
+msgstr "Medio tanque"
 
 #. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__mercedes
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__mercedes
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__mercedes
+msgid "Mercedes-Benz"
+msgstr "Mercedes-Benz"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__mitsubishi
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__mitsubishi
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__mitsubishi
+msgid "Mitsubishi"
+msgstr "Mitsubishi"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__nombre_auto
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__nombre_auto
+msgid "Model"
+msgstr "Nombre de Vehículo"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car_model__name
+msgid "Model Name"
+msgstr "Nombre"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__anio_auto
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__anio_auto
+msgid "Model Year"
+msgstr "Año"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
 msgid "Model"
 msgstr "Modelo"
 
 #. module: workshop_mechanic
+#: model:ir.ui.menu,name:workshop_mechanic.menu_car_model
+msgid "Car Models"
+msgstr "Modelos de autos"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__nissan
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__nissan
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__nissan
+msgid "Nissan"
+msgstr "Nissan"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_sale_order__tanque_gasolina
+msgid "Vehicle fuel level"
+msgstr "Nivel de combustible del vehículo"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Name"
+msgstr "Nombre"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__observations
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__observations
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__kilometraje_auto
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__kilometraje_auto
 msgid "Odometer"
 msgstr "Kilometraje"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order_line__purchase_price
-msgid "Purchase price"
-msgstr "Precio de compra"
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__other
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__other
+msgid "Other brand"
+msgstr "Otra marca"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__other
+msgid "Other brand"
+msgstr "Otra marca"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__peugeot
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__peugeot
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__peugeot
+msgid "Peugeot"
+msgstr "Peugeot"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__placas_auto
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Placas"
+msgstr "Placas"
+
+#. module: workshop_mechanic
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_car_kanban_mobile
+msgid "Placas:"
+msgstr "Placas"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__ram
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__ram
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__ram
+msgid "RAM"
+msgstr "RAM"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__reception_date
+msgid "Reception Date"
+msgstr "Fecha de recepción"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__renault
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__renault
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__renault
+msgid "Renault"
+msgstr "Renault"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__seat
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__seat
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__seat
+msgid "SEAT"
+msgstr "SEAT"
 
 #. module: workshop_mechanic
 #: model:ir.model,name:workshop_mechanic.model_sale_order
@@ -173,14 +613,35 @@ msgstr "Línea de la orden de venta"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,help:workshop_mechanic.field_sale_order__selected_car_id
-msgid "Select the customers vehicle for this quote."
+msgid "Select a customer vehicle for this quote."
 msgstr "Seleccione el vehículo del cliente para esta cotización"
 
 #. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__selected_car_id
-msgid "Selected Vehicle"
-msgstr "Vehículo Seleccionado"
+#: model:ir.model.fields,help:workshop_mechanic.field_sale_order__anio_auto
+msgid "Select the vehicle model year"
+msgstr "Seleccione el año del modelo del vehículo"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,help:workshop_mechanic.field_car__anio_auto
+msgid "Select the vehicle model year"
+msgstr "Seleccione el año del modelo del vehículo"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__subaru
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__subaru
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__subaru
+msgid "Subaru"
+msgstr "Subaru"
+
+#. module: workshop_mechanic
+#: model:ir.ui.menu,name:workshop_mechanic.menu_car_model_root
+msgid "Mechanical Workshop"
+msgstr "Taller Mecánico"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__partner_mobile
+msgid "Teléfono Móvil"
+msgstr "Mobile Phone"
 
 #. module: workshop_mechanic
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_account_invoice_tree_inherit_margin
@@ -189,33 +650,40 @@ msgid "Total Margen"
 msgstr "Margen total"
 
 #. module: workshop_mechanic
-#: model:ir.model.fields,help:workshop_mechanic.field_account_bank_statement_line__margin
-#: model:ir.model.fields,help:workshop_mechanic.field_account_move__margin
-#: model:ir.model.fields,help:workshop_mechanic.field_account_payment__margin
-msgid "Total margin inherited from the sales order"
-msgstr "Margen total heredado de la orden de venta"
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__toyota
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__toyota
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__toyota
+msgid "Toyota"
+msgstr "Toyota"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_car__serie_auto
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__serie_auto
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "VIN"
+msgstr "VIN"
 
 #. module: workshop_mechanic
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
 msgid "Vehicle"
-msgstr "Vehículo"
-
-#. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
-msgid "Vehicle Brand"
-msgstr "Marca del vehículo"
-
-#. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
-msgid "Vehicle model"
-msgstr "Modelo de vehículo"
+msgstr "مركبة"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_car__placas_auto
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__placas_auto
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
 msgid "Vehicle registration"
-msgstr "Matricula del vehículo"
+msgstr "تسجيل المركبة"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__car_description
+msgid "Vehicle"
+msgstr "المركبة"
+
+#. module: workshop_mechanic
+#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__selected_car_id
+#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
+msgid "Selected vehicle"
+msgstr "المركبة المحددة"
 
 #. module: workshop_mechanic
 #: model:ir.model.fields,field_description:workshop_mechanic.field_res_partner__car_ids
@@ -223,41 +691,18 @@ msgstr "Matricula del vehículo"
 #: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__car_ids
 #: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
 msgid "Vehicles"
-msgstr "Vehículos"
+msgstr "المركبات"
 
 #. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__nombre_auto
-msgid "Vehicle Name"
-msgstr "Nombre del Vehículo"
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__volkswagen
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__volkswagen
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__volkswagen
+msgid "Volkswagen"
+msgstr "فولكس فاجن"
 
 #. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__color_auto
-msgid "Color"
-msgstr "Color"
-
-#. module: workshop_mechanic  
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__placas_auto
-msgid "Vehicle registration"
-msgstr "Matricula del Vehículo"
-
-#. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__kilometraje_auto
-msgid "Odometer"
-msgstr "Kilometraje"
-
-#. module: workshop_mechanic
-#: model:ir.model.fields,field_description:workshop_mechanic.field_car__kilometraje_auto
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_partner_form_inherit_add_vehicle_data
-msgid "Odometer"
-msgstr "Kilometraje"
-
-
-#. module: workshop_mechanic
-#: model_terms:ir.ui.view,arch_db:workshop_mechanic.view_sale_order_form_inherit_add_vehicle_data
-#: model:ir.model.fields,field_description:workshop_mechanic.field_sale_order__tanque_gasolina
-msgid "Fuel Tank"
-msgstr "Tanque de Combustible"
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car__marca_auto__volvo
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__car_model__brand__volvo
+#: model:ir.model.fields.selection,name:workshop_mechanic.selection__sale_order__marca_auto__volvo
+msgid "Volvo"
+msgstr "فولفو"
