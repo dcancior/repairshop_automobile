@@ -16,9 +16,8 @@ class SaleOrder(models.Model):
     )
 
     def action_send_whatsapp(self):
-        """Enviar mensaje de WhatsApp notificando que la cotización está lista, con detalles de productos, vehículo y links de acceso"""
         self.ensure_one()
-        
+
         if not self.partner_mobile:
             raise UserError(_('El cliente no tiene número de teléfono móvil registrado.'))
 
@@ -30,10 +29,10 @@ class SaleOrder(models.Model):
 
             productos = "\n".join([
                 _("🔹 {nombre}\n    🔸 Cantidad: {cantidad}    💵 {precio} {moneda}").format(
-                    nombre=line.product_id.name,
-                    cantidad=line.product_uom_qty,
-                    precio=line.price_total,
-                    moneda=self.currency_id.name
+                    nombre=line.product_id.name or '',
+                    cantidad=line.product_uom_qty or 0,
+                    precio=line.price_total or 0.0,
+                    moneda=self.currency_id.name or ''
                 )
                 for line in self.order_line
             ])
@@ -83,12 +82,12 @@ Tu cotización *{cotizacion}* está lista. Aquí tienes los detalles:
 
 ¿Tienes alguna pregunta? ¡Estamos para servirte! 😊🔧"""
             ).format(
-                cliente=self.partner_id.name,
-                cotizacion=self.name,
+                cliente=self.partner_id.name or '',
+                cotizacion=self.name or '',
                 datos_vehiculo=datos_vehiculo,
                 productos=productos,
-                total=self.amount_total,
-                moneda=self.currency_id.name,
+                total=self.amount_total or 0.0,
+                moneda=self.currency_id.name or '',
                 link=portal_url
             )
 

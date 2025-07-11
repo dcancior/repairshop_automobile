@@ -23,9 +23,10 @@ class AccountMove(models.Model):
             pdf_url = f"{base_url}/report/pdf/account.report_invoice_with_payments/{self.id}?access_token={self.access_token}"
             portal_url = f"{base_url}/my/invoices/{self.id}?access_token={self.access_token}"
 
+            # Obtener datos del vehículo si hay orden relacionada
             sale_order = self.env['sale.order'].search([('name', '=', self.invoice_origin)], limit=1)
             if sale_order:
-                datos_vehiculo = _(
+                datos_vehiculo_template = _(
 """🚗 *Datos del Vehículo:*
 • Marca: {marca}
 • Nombre: {nombre}
@@ -36,7 +37,9 @@ class AccountMove(models.Model):
 • Placas: {placas}
 • Tanque de gasolina: {tanque}
 • Observaciones: {observaciones}
-""").format(
+"""
+                )
+                datos_vehiculo = datos_vehiculo_template.format(
                     marca=sale_order.marca_auto or '-',
                     nombre=sale_order.nombre_auto or '-',
                     modelo=sale_order.anio_auto or '-',
@@ -50,6 +53,7 @@ class AccountMove(models.Model):
             else:
                 datos_vehiculo = ""
 
+            # Detalles de servicios/productos
             servicios = "\n".join([
                 _("🔹 {name}\n    🔸 Cantidad: {qty}    💵 {total} {currency}").format(
                     name=line.name,
@@ -60,7 +64,8 @@ class AccountMove(models.Model):
                 for line in self.invoice_line_ids
             ])
 
-            message = _(
+            # Plantilla del mensaje principal
+            message_template = _(
 """👋 ¡Hola {cliente}!
 
 Tu orden *{orden}* está lista.
@@ -76,7 +81,9 @@ Tu orden *{orden}* está lista.
 {portal}
 
 ¿Tienes alguna pregunta? ¡Estamos para servirte! 😊"""
-            ).format(
+            )
+
+            message = message_template.format(
                 cliente=self.partner_id.name,
                 orden=self.name,
                 datos_vehiculo=datos_vehiculo,
@@ -96,4 +103,4 @@ Tu orden *{orden}* está lista.
 
         except Exception as e:
             _logger.error(f"Error al enviar: {str(e)}")
-            raise UserError(_('Error al enviar mensaje: {}').format(str(e)))
+            raise UserError(_("Error al enviar mensaje: %s") % str(e))

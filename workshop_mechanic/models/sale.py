@@ -2,11 +2,10 @@
 # DCR INFORMATIC SERVICES SAS DE CV
 # https://www.dcrsoluciones.com
 
-
 from odoo import api, fields, models, _
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
 import logging
+
 _logger = logging.getLogger(__name__)
 
 class SaleOrder(models.Model):
@@ -23,17 +22,16 @@ class SaleOrder(models.Model):
         comodel_name='car',
         inverse_name='partner_id',
         string=_('Vehículos'),
-        readonly=False
+        readonly=False,
     )
 
     selected_car_id = fields.Many2one(
         comodel_name='car',
         string=_('Vehículo seleccionado'),
         help=_('Selecciona un vehículo del cliente para esta cotización.'),
-        readonly=False
+        readonly=False,
     )
 
-    #marca_auto = fields.Char(string='Brand')
     marca_auto = fields.Selection(
         selection=[
             ('nissan', 'Nissan'),
@@ -73,7 +71,7 @@ class SaleOrder(models.Model):
         string=_('Marca'),
         required=True,
     )
-    #nombre_auto = fields.Char(string='Car Name')
+
     nombre_auto = fields.Many2one(
         'car.model',
         string=_('Model'),
@@ -82,7 +80,7 @@ class SaleOrder(models.Model):
     anio_auto = fields.Selection(
         selection='_get_years',
         string=_('Model Year'),
-        help=_('Seleccione el año del modelo del vehículo')
+        help=_('Seleccione el año del modelo del vehículo'),
     )
     color_auto = fields.Char(string=_('Color'))                               
     kilometraje_auto = fields.Integer(string=_('Kilometraje'))
@@ -90,17 +88,15 @@ class SaleOrder(models.Model):
     
     reception_date = fields.Datetime(
         string=_('Fecha de Recepción'),
-        help=_('Fecha y hora en que el vehículo fue recibido en el taller')
+        help=_('Fecha y hora en que el vehículo fue recibido en el taller'),
     )
     entrega_date = fields.Datetime(
         string=_('Fecha de Entrega'),
-        help=_('Fecha y hora en que el vehículo fue entregado al cliente')
+        help=_('Fecha y hora en que el vehículo fue entregado al cliente'),
     )
-
 
     placas_auto = fields.Char(string=_('Placas'))
 
-    
     tanque_gasolina = fields.Selection(
         selection=[
             ('1/4', _('1/4 tank')),
@@ -116,9 +112,8 @@ class SaleOrder(models.Model):
     @api.onchange('selected_car_id')
     def _onchange_selected_car_id(self):
         if self.selected_car_id:
-            # Asigna primero la marca
+            # Asignar datos del vehículo seleccionado a la cotización
             self.marca_auto = self.selected_car_id.marca_auto
-            # Luego el modelo, ya que el dominio depende de la marca
             self.nombre_auto = self.selected_car_id.nombre_auto.id if self.selected_car_id.nombre_auto else False
             self.anio_auto = self.selected_car_id.anio_auto
             self.color_auto = self.selected_car_id.color_auto
@@ -128,6 +123,7 @@ class SaleOrder(models.Model):
             self.tanque_gasolina = self.selected_car_id.tanque_gasolina
             self.observations = self.selected_car_id.observations
         else:
+            # Limpiar datos si no hay vehículo seleccionado
             self.marca_auto = False
             self.nombre_auto = False
             self.anio_auto = False
@@ -143,22 +139,27 @@ class SaleOrder(models.Model):
         Actualiza los datos del vehículo tanto en el modelo car como en res.partner
         """
         if self.selected_car_id and self.partner_id:
-            # Actualizar el vehículo existente con los nuevos datos
             self.selected_car_id.write(car_vals)
             return self.selected_car_id
         return False
 
     def write(self, vals):
-        _logger.info(f"Values ​​received in write: {vals}")
-        # Normaliza nombre_auto a un ID si es necesario
+        _logger.info(f"Values received in write: {vals}")
+
+        # Normalizar nombre_auto a ID si es necesario
         nombre_auto_val = vals.get('nombre_auto', self.nombre_auto)
         if hasattr(nombre_auto_val, 'id'):
             nombre_auto_id = nombre_auto_val.id
         else:
             nombre_auto_id = nombre_auto_val or (self.nombre_auto.id if self.nombre_auto else False)
+
         res = super(SaleOrder, self).write(vals)
-        
-        if any(field in vals for field in ['nombre_auto', 'marca_auto', 'anio_auto', 'color_auto', 'kilometraje_auto', 'placas_auto', 'tanque_gasolina']):
+
+        # Actualizar datos del vehículo si alguno de esos campos está en vals
+        if any(field in vals for field in [
+            'nombre_auto', 'marca_auto', 'anio_auto', 'color_auto', 
+            'kilometraje_auto', 'placas_auto', 'tanque_gasolina', 'serie_auto', 'observations'
+        ]):
             car_vals = {
                 'marca_auto': vals.get('marca_auto', self.marca_auto),
                 'nombre_auto': nombre_auto_id,
@@ -177,20 +178,18 @@ class SaleOrder(models.Model):
 
     @api.model
     def create(self, vals):
-        """
-        Sobrescribe el método create para gestionar la creación/actualización de vehículos
-        cuando se crea una nueva cotización.
-        """
-        _logger.info(f"Values ​​received in create: {vals}")
+        _logger.info(f"Values received in create: {vals}")
+
         nombre_auto_val = vals.get('nombre_auto')
         if hasattr(nombre_auto_val, 'id'):
             nombre_auto_id = nombre_auto_val.id
         else:
             nombre_auto_id = nombre_auto_val or False
-        # Preparar los valores del vehículo si hay datos
+
+        # Preparar datos del vehículo si hay datos y partner_id
         if vals.get('partner_id') and any(field in vals for field in [
             'nombre_auto', 'marca_auto', 'anio_auto', 'color_auto',
-            'kilometraje_auto', 'placas_auto', 'tanque_gasolina'
+            'kilometraje_auto', 'placas_auto', 'tanque_gasolina', 'serie_auto', 'observations'
         ]):
             car_vals = {
                 'partner_id': vals['partner_id'],
@@ -201,33 +200,32 @@ class SaleOrder(models.Model):
                 'kilometraje_auto': vals.get('kilometraje_auto', 0),
                 'serie_auto': vals.get('serie_auto', ''),
                 'placas_auto': vals.get('placas_auto', ''),
-                'tanque_gasolina': vals.get('tanque_gasolina', '1/4 de tanque'),
+                'tanque_gasolina': vals.get('tanque_gasolina', '1/4'),
                 'observations': vals.get('observations', ''),
             }
 
-            # Si hay un vehículo seleccionado, actualizar ese
+            # Actualizar vehículo seleccionado si existe
             if vals.get('selected_car_id'):
                 existing_car = self.env['car'].browse(vals['selected_car_id'])
                 if existing_car.exists():
                     existing_car.write(car_vals)
                     vals['selected_car_id'] = existing_car.id
-            # Si no hay vehículo seleccionado pero hay datos de vehículo, crear uno nuevo
             else:
+                # Crear nuevo vehículo
                 new_car = self.env['car'].create(car_vals)
                 vals['selected_car_id'] = new_car.id
-                # Actualizar el partner con el nuevo vehículo
+
+                # Asociar nuevo vehículo al partner
                 partner = self.env['res.partner'].browse(vals['partner_id'])
-                if partner:
+                if partner.exists():
                     partner.write({'car_ids': [(4, new_car.id, False)]})
 
-        # Crear la orden de venta
         res = super(SaleOrder, self).create(vals)
         return res
 
     def _get_years(self):
         current_year = datetime.now().year
         years = []
-        # Genera años desde 1990 hasta el año actual
         for year in range(current_year, 1989, -1):
             years.append((str(year), str(year)))
         return years

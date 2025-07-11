@@ -8,7 +8,7 @@ from dateutil.relativedelta import relativedelta
 
 class CarModel(models.Model):
     _name = 'car.model'
-    _description = _('Car Model')  # ← Esto también es traducible
+    _description = 'Car Model'  # ← Texto plano, no usar _() aquí
 
     name = fields.Char(string=_('Model Name'), required=True)
     brand = fields.Selection(
@@ -28,7 +28,7 @@ class CarModel(models.Model):
             ('mercedes', 'Mercedes-Benz'),
             ('audi', 'Audi'),
             ('jeep', 'Jeep'),
-            ('ram', 'RAM'), 
+            ('ram', 'RAM'),
             ('crysler', 'Crysler'),
             ('cadillac', 'Cadillac'),
             ('gmc', 'GMC'),
@@ -45,16 +45,16 @@ class CarModel(models.Model):
             ('jac', 'JAC'),
             ('baic', 'BAIC'),
             ('foton', 'Foton'),
-            ('other', 'Otra marca'),
+            ('other', _('Other brand')),  # ← Traducible
         ],
-        string=_('Marca'),
+        string=_('Brand'),
         required=True
     )
 
 
 class Car(models.Model):
     _name = 'car'
-    _description = _('Car')
+    _description = 'Car'
 
     marca_auto = fields.Selection(
         selection=[
@@ -73,7 +73,7 @@ class Car(models.Model):
             ('mercedes', 'Mercedes-Benz'),
             ('audi', 'Audi'),
             ('jeep', 'Jeep'),
-            ('ram', 'RAM'), 
+            ('ram', 'RAM'),
             ('crysler', 'Crysler'),
             ('cadillac', 'Cadillac'),
             ('gmc', 'GMC'),
@@ -90,7 +90,7 @@ class Car(models.Model):
             ('jac', 'JAC'),
             ('baic', 'BAIC'),
             ('foton', 'Foton'),
-            ('other', 'Otra marca'),
+            ('other', _('Other brand')),  # Traducible
         ],
         string=_('Brand'),
         required=True,
@@ -104,44 +104,42 @@ class Car(models.Model):
 
     anio_auto = fields.Selection(
         selection=lambda self: self._get_years(),
-        string=_('Año del autor'),
-        help=_('Selecciona el año del vehículo')
+        string=_('Model Year'),
+        help=_('Select the vehicle model year')
     )
 
     color_auto = fields.Char(string=_('Color'))
 
-    kilometraje_auto = fields.Integer(string=_('Kilometraje'))
+    kilometraje_auto = fields.Integer(string=_('Odometer'))
 
-    placas_auto = fields.Char(string=_('Placas'))
+    placas_auto = fields.Char(string=_('Vehicle registration'))
 
     serie_auto = fields.Char(string=_('VIN'))
 
     tanque_gasolina = fields.Selection(
         selection=[
             ('1/4', _('1/4 tank')),
-            ('Medio tanque', _('Medio tanque')),
-            ('3/4', _('3/4')),
-            ('Lleno', _('Lleno')),
+            ('Medio tanque', _('Half tank')),
+            ('3/4', _('3/4 tank')),
+            ('Lleno', _('Full')),
         ],
-        string=_('Combustible'),
-        help=_('Nivel de combustible del vehículo'),
+        string=_('Fuel level'),
+        help=_('Fuel level in the vehicle at time of reception'),
     )
 
-    observations = fields.Text(string=_('Observaciones'))
+    observations = fields.Text(string=_('Observations'))
 
     reception_date = fields.Datetime(
-        string=_('Fecha de recepción'),
-        help=_('Fecha y hora de recepción del vehículo en el taller.')
+        string=_('Reception Date'),
+        help=_('Date and time when the vehicle was received')
     )
 
     entrega_date = fields.Datetime(
-        string=_('Fecha de entrega'),
-        help=_('Fecha y hora en que el vehículo fue entregado al cliente')
+        string=_('Delivery Date'),
+        help=_('Date and time when the vehicle was delivered to the customer')
     )
-    
-    
 
-    partner_id = fields.Many2one('res.partner', string=_('Cliente'))
+    partner_id = fields.Many2one('res.partner', string=_('Customer'))
 
     @api.onchange('marca_auto')
     def _onchange_marca_auto(self):
@@ -160,7 +158,6 @@ class Car(models.Model):
     def _get_years(self):
         current_year = datetime.now().year
         years = []
-        # Genera años desde 1990 hasta el año actual
         for year in range(current_year, 1989, -1):
             years.append((str(year), str(year)))
         return years
